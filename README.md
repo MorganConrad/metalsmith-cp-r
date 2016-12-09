@@ -15,9 +15,9 @@ CLI: Haven't tested it yet.
 
 #### Required "Options"
 
-**from**:       file or directory to copy from.
+**from**: file or directory to copy from.
 
-**to**:         file or directory to copy into.
+**to**: &nbsp;&nbsp;&nbsp;&nbsp; file or directory to copy into.
 
 If **from** or **to** starts with _XXX/, they will be relative to that metalsmith property.  Common ones are:
 
@@ -29,25 +29,31 @@ If **from** or **to** starts with _XXX/, they will be relative to that metalsmit
 
 _e.g._ to copy into the folder you set in `metalsmith.destination()` use `{ to: "_destination/your/folder/path"}`.
 
-Otherwise, the path will be resolved normally.  (Sorry, if you really want to copy to or from a folder starting with _, the workaround is to start the path with a . or / or something...)
+Otherwise, the path will be resolved normally using `path.resolve()`.  (Sorry, if you really want to copy to or from a folder starting with _, the workaround is to start the path with a . or / or something...)
 
 
 #### Optional Options, all default to null
 
-**noclobber**:  if truthy, don't overwrite existing files
+**noclobber**:  if truthy, don't overwrite existing files.  (Note:  cp-r never overwrites existing folders)
 
-**dirMode**     e.g. 0o777 copied dirs will have this "mode",  default = use same mode as existing dir
+**dirMode**     e.g. 0o777 copied dirs will have this "mode",  default = use same mode as existing dir.
 
-**fileMode**    e.g. 0o666 copied files will have this "mode", default = use same mode as existing files
+**fileMode**    e.g. 0o666 copied files will have this "mode", default = use same mode as existing file.
 
-**ignoreDir**   a string or Regex, if present, ignore directories matching this pattern
+**ignoreDir**   a string or Regex, if present, ignore directories matching this pattern.
 
-**ignoreFile**  a string or Regex, if present, ignore files matching this pattern
+**ignoreFile**  a string or Regex, if present, ignore files matching this pattern.
 
 
 ### Notes, Todos, and Caveats
 
-I wrote this because [metalsmith-assets](https://www.npmjs.com/package/metalsmith-assets) had a ton of obsolete dependencies and wasn't actively processing issues and pull requests.  I used an absolute minimum of dependencies (only debug) and added a few features from it's feature requests.
+cp-r doesn't do any fancy async stuff - didn't seem worth it for a simple build script.
+
+cp-r has not been tested with links, locked directories, bad inputs, other weird stuff.
+
+The "unit-test" is pretty lame.  In package.json, please set scripts.test to the value for testWindows or TestUnix as appropriate.
+
+I wrote this because [metalsmith-assets](https://www.npmjs.com/package/metalsmith-assets) had a ton of obsolete dependencies and wasn't actively processing issues and pull requests.  cp-r uses an absolute minimum of dependencies (only debug) and implements a few features from metalsmith-assets' feature requests.
 
 [metalsmith-copy-assets-540](https://www.npmjs.com/package/metalsmith-copy-assets-540) isn't recursive.
 

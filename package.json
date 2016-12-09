@@ -4,7 +4,9 @@
   "description": "Metalsmith plugin to copy folders recursively.",
   "main": "cp-r.js",
   "scripts": {
-    "testWindows": "test\\test.bat"
+    "testWindows": "test\\test.bat",
+
+    "test" : "test\\test.bat"
   },
   "repository": {
     "type": "git",

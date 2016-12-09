@@ -2,15 +2,18 @@ var test = require('tape');
 var fs = require('fs');
 
 test('check debug messages', function(t) {
-   var messages = fs.readFileSync('test/tmpfile').toString();
+
+   var buf = new Buffer(1000);
+   var len = fs.readSync(process.stdin.fd, buf, 0, 1000, 0);
+   var messages = buf.slice(0, len).toString();
    messages = messages.replace(/\\/g, '/');  // convert all slashes to UNIX
 
    var lines = messages.split(/\n/);
-   t.equal(lines.length, 10);  // really 9 lines but there's an extra at the end
+   t.equal(lines.length, 8);  // we get one extra at the end
 
-   t.true(messages.includes('creating dir: C:/gitL/master/metalsmith-cp-r/test/to1/css'));
-   t.true(lines[3].includes('test/to1/css/copyme.css'));
-   t.true(lines[4].includes('Gettysburg'));
+   t.true(messages.includes('test/to1/css'));
+   t.true(messages.includes('test/to1/css/copyme.css'));
+   t.true(messages.includes('Gettysburg'));
 
    t.false(messages.includes('ignore'));
 

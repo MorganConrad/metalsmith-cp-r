@@ -3,13 +3,17 @@
 REM Test script for Windows
 REM assume we are running from one folder up, the folder with package.json
 
-REM cleanup, may not be here so ignore error message
+REM cleanup, this folder probably not there so ignore error message
 rmdir /S /Q test\to1 2> NUL
 
-set DEBUG=metalsmith*
-node test/test1 2> test/tmpfile
-node test/test2
+REM copy the files
+node test/test1
+
+REM get the directory listing and test it
+set errorlevel=
+dir /B /S test\to1 | node test/test2
 
 REM CLEANUP
 rmdir /S /Q test\to1
-del test\tmpfile
+
+exit /B %errorlevel%
