@@ -15,9 +15,9 @@ CLI: Haven't tested it yet.
 
 #### Required "Options"
 
-**from**: file or directory to copy from.
+**from**: the _contents_ of this directory, or this file, will be copied
 
-**to**: &nbsp;&nbsp;&nbsp;&nbsp; file or directory to copy into.
+**to**: &nbsp;&nbsp;&nbsp;&nbsp; into this _directory_.  It will be created if necessary.
 
 If **from** or **to** starts with _XXX/, they will be relative to that metalsmith property.  Common ones are:
 
@@ -27,7 +27,9 @@ If **from** or **to** starts with _XXX/, they will be relative to that metalsmit
 
 **Warning** If you use this feature, _you must use '/' (not a Windows '\\\\') as your folder delimiter._
 
-_e.g._ to copy into the folder you set in `metalsmith.destination()` use `{ to: "_destination/your/folder/path"}`.
+_e.g._ to copy from the working directory into the folder you set in `metalsmith.destination()` use
+
+`{ from: "_directory/pathto/assets", to: "_destination/pathto/assets"}`.
 
 Otherwise, the path will be resolved normally using `path.resolve()`.  (Sorry, if you really want to copy to or from a folder starting with _, the workaround is to start the path with a . or / or something...)
 
@@ -36,22 +38,22 @@ Otherwise, the path will be resolved normally using `path.resolve()`.  (Sorry, i
 
 **noclobber**:  if truthy, don't overwrite existing files.  (Note:  cp-r never overwrites existing folders)
 
-**dirMode**     e.g. 0o777 copied dirs will have this "mode",  default = use same mode as existing dir.
+**dirMode**&nbsp;&nbsp;&nbsp;&nbsp;     e.g. 0o777 copied dirs will have this "mode",  default = use same mode as existing dir.
 
-**fileMode**    e.g. 0o666 copied files will have this "mode", default = use same mode as existing file.
+**fileMode**&nbsp;&nbsp;&nbsp;    e.g. 0o666 copied files will have this "mode", default = use same mode as existing file.
 
-**ignoreDir**   a string or Regex, if present, ignore directories matching this pattern.
+**ignoreDir**&nbsp;&nbsp;   a string or Regex, if present, ignore directories matching this pattern.
 
-**ignoreFile**  a string or Regex, if present, ignore files matching this pattern.
+**ignoreFile**&nbsp;&nbsp;  a string or Regex, if present, ignore files matching this pattern.
 
 
 ### Notes, Todos, and Caveats
 
-cp-r doesn't do any fancy async stuff - didn't seem worth it for a simple build script.
+cp-r doesn't do any fancy async stuff - didn't seem worth it for a simple build script.  (It really feels "un-nody" because of all the synch stuff!)
 
 cp-r has not been tested with links, locked directories, bad inputs, other weird stuff.
 
-The "unit-test" is pretty lame.  In package.json, please set scripts.test to the value for testWindows or TestUnix as appropriate.
+The "unit-test" is pretty lame.  In package.json, please set scripts.test to the value for testWindows or testUnix as appropriate.
 
 I wrote this because [metalsmith-assets](https://www.npmjs.com/package/metalsmith-assets) had a ton of obsolete dependencies and wasn't actively processing issues and pull requests.  cp-r uses an absolute minimum of dependencies (only debug) and implements a few features from metalsmith-assets' feature requests.
 
