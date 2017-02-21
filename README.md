@@ -3,7 +3,9 @@
 [![NPM Downloads](http://img.shields.io/npm/dm/metalsmith-cp-r.svg)](https://www.npmjs.org/package/metalsmith-cp-r)
 
 # metalsmith-cp-r
-A [Metalsmith](http://www.metalsmith.io/) plugin to copy files recursively.
+A [Metalsmith](http://www.metalsmith.io/) plugin to copy files recursively.  Similar to [metalsmith-assets](https://www.npmjs.com/package/metalsmith-assets) but:
+ * cp-r has minimal dependencies (only debug)
+ * cp-r offers several additional options and controls
 
 ### Usage
 
