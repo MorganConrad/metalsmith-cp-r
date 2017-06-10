@@ -1,6 +1,7 @@
 [![Build Status](https://secure.travis-ci.org/MorganConrad/metalsmith-cp-r.png)](http://travis-ci.org/MorganConrad/metalsmith-cp-r)
 [![License](http://img.shields.io/badge/license-MIT-A31F34.svg)](https://github.com/MorganConrad/metalsmith-cp-r)
 [![NPM Downloads](http://img.shields.io/npm/dm/metalsmith-cp-r.svg)](https://www.npmjs.org/package/metalsmith-cp-r)
+[![Known Vulnerabilities](https://snyk.io/test/github/morganconrad/metalsmith-cp-r/badge.svg)](https://snyk.io/test/github/morganconrad/metalsmith-cp-r)
 
 # metalsmith-cp-r
 A [Metalsmith](http://www.metalsmith.io/) plugin to copy files recursively.  Similar to [metalsmith-assets](https://www.npmjs.com/package/metalsmith-assets) but:
