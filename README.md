@@ -14,17 +14,17 @@ Install as usual,  `npm install metalsmith-cp-r`.
 
 Javascript:  `use(metalsmith-cp-r(options))`
 
-CLI: Haven't tested it yet.
+CLI: You'll lose a few options since you can't pass functions.
 
-#### Required "Options"
+#### Options
 
-**from**: the _contents_ of this directory, or this file, will be copied
+**from**: the _contents_ of this directory, or this file, will be copied.  Defaults to "_directory/assets" (see below).
 
-**to**: &nbsp;&nbsp;&nbsp;&nbsp; into this _directory_.  It will be created if necessary.
+**to**: &nbsp;&nbsp;&nbsp;&nbsp; into this _directory_.  It will be created if necessary.  Defaults to "_destination/assets".
 
 If **from** or **to** starts with _XXX/, they will be relative to that metalsmith property.  Common ones are:
 
- - _destination&nbsp;&nbsp;&nbsp;see [metalsmith.destination()](https://github.com/metalsmith/metalsmith#destinationpath)
+ - _destination &nbsp;&nbsp;&nbsp;see [metalsmith.destination()](https://github.com/metalsmith/metalsmith#destinationpath)
  - _source &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;see [metalsmith.source()](https://github.com/metalsmith/metalsmith#sourcepath)
  - _directory &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;see metalsmith.directory() or the constructor [Metalsmith(__dirname)](https://github.com/metalsmith/metalsmith#new-metalsmithdir)
 
@@ -37,7 +37,7 @@ _e.g._ to copy from the working directory into the folder you set in `metalsmith
 Otherwise, the path will be resolved normally using `path.resolve()`.  (Sorry, if you really want to copy to or from a folder starting with _, the workaround is to start the path with a . or / or something...)
 
 
-#### Optional Options, all default to null
+#### Less common options, all default to null
 
 **noclobber**:  if truthy, don't overwrite existing files.  (Note:  cp-r never overwrites existing folders)
 

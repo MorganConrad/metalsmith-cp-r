@@ -6,13 +6,16 @@ var fs = require('fs');
 var path = require('path');
 var debug = require('debug')('metalsmith-cp-r');
 
+const defaults = {
+   from : "_directory/assets",
+   to   : "_destination/assets"
+};
+
 module.exports = cpR;
 
 function cpR(options) {
 
-   if (!options || !options.from || !options.to) {  // test options explicitly
-      throw new Error('metalsmith-cpR requires options.from and options.to');
-   }
+   options = Object.assign(defaults, options)
    options.noclobber = options.noclobber || options['no-clobber'];
 
    options.ignoreDirRegex = resolveRegex(options.ignoreDir);
