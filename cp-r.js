@@ -15,7 +15,7 @@ module.exports = cpR;
 
 function cpR(options) {
 
-   options = Object.assign(defaults, options)
+   options = Object.assign({}, defaults, options)
    options.noclobber = options.noclobber || options['no-clobber'];
 
    options.ignoreDirRegex = resolveRegex(options.ignoreDir);

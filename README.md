@@ -60,6 +60,8 @@ The "unit-test" is pretty lame.  In package.json, please set scripts.test to the
 
 I wrote this because [metalsmith-assets](https://www.npmjs.com/package/metalsmith-assets) had a ton of obsolete dependencies and wasn't actively processing issues and pull requests.  cp-r uses an absolute minimum of dependencies (only debug) and implements a few features from metalsmith-assets' feature requests.
 
+[metalsmith-assets-improved](https://www.npmjs.com/package/metalsmith-assets-improved) looks comparable. 
+
 [metalsmith-copy-assets-540](https://www.npmjs.com/package/metalsmith-copy-assets-540) isn't recursive.
 
 It's possible that [metalsmith-copy](https://github.com/mattwidmann/metalsmith-copy) does this better.
