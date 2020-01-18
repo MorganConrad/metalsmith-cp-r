@@ -1,12 +1,11 @@
 {
   "name": "metalsmith-cp-r",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "Metalsmith plugin to copy folders recursively.",
   "main": "cp-r.js",
   "scripts": {
-    "testWindows": "test\\test.bat",
     "testWindows": "test/test.sh",
-    "test" : "test/test.sh"
+    "test": "test/test.sh"
   },
   "repository": {
     "type": "git",
